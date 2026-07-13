@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work | FD Webworks — Minnesota Website Portfolio</title>
+<meta name="description" content="Browse website projects built by FD Webworks for Minnesota local businesses — restaurants, salons, home services, real estate, and more.">
+<meta name="keywords" content="Minnesota Web Agency, FD Webworks Agency, Agency Minnesota, Create websites for local businesses">
+<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="FD Webworks home">
+      <img src="images/logo.png" alt="FD Webworks logo">
+      <span class="brand-name">FD <span>Webworks</span></span>
+    </a>
+    <nav class="nav-main" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="listings.html" class="active">Listings</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a Call</a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="listings.html">Listings</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary btn-block">Book a Call</a>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="blueprint"></div>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Listings</p>
+    <p class="eyebrow on-dark">Our work</p>
+    <h1>Websites built for real Minnesota businesses.</h1>
+    <p>A look at the kinds of local businesses we design for — filter by industry to see what fits yours.</p>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<section style="background:var(--white); border-bottom:1px solid var(--line); position:sticky; top:76px; z-index:50;">
+  <div class="wrap" style="padding:20px 24px;">
+    <div class="filter-bar" style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="filter-btn btn btn-ghost btn-sm active" data-filter="all">All Projects</button>
+      <button class="filter-btn btn btn-ghost btn-sm" data-filter="home-services">Home Services</button>
+      <button class="filter-btn btn btn-ghost btn-sm" data-filter="food">Restaurants &amp; Cafés</button>
+      <button class="filter-btn btn btn-ghost btn-sm" data-filter="wellness">Salons &amp; Wellness</button>
+      <button class="filter-btn btn btn-ghost btn-sm" data-filter="real-estate">Real Estate</button>
+      <button class="filter-btn btn btn-ghost btn-sm" data-filter="professional">Professional Services</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LISTINGS GRID ============ -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="grid grid-3">
+
+      <div class="listing-card card" data-category="home-services" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota HVAC and home services company" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Home Services</span>
+          <h3 style="font-size:18px; margin-top:10px;">Twin Cities HVAC</h3>
+          <p style="font-size:14.5px;">A booking-first redesign that cut phone-tag by adding instant scheduling and service-area pages.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="food" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minneapolis neighborhood restaurant" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Restaurant</span>
+          <h3 style="font-size:18px; margin-top:10px;">Maple &amp; Main Kitchen</h3>
+          <p style="font-size:14.5px;">Menu-forward design with online ordering links and event booking for private dining.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="wellness" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota hair and beauty salon" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Salon &amp; Wellness</span>
+          <h3 style="font-size:18px; margin-top:10px;">Luxe Hair Studio</h3>
+          <p style="font-size:14.5px;">Visual, service-menu-led site with embedded online booking and staff profiles.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="real-estate" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota real estate agency" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Real Estate</span>
+          <h3 style="font-size:18px; margin-top:10px;">Northstar Realty Group</h3>
+          <p style="font-size:14.5px;">Listings-driven layout built for fast browsing on mobile, with lead capture on every property page.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="professional" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota law and financial services firm" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Professional Services</span>
+          <h3 style="font-size:18px; margin-top:10px;">Halvorsen &amp; Cole Law</h3>
+          <p style="font-size:14.5px;">Trust-building design with clear practice-area pages and a simple consultation request form.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="home-services" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1621905252472-e52e5b2d47ba?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota plumbing and remodeling contractor" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Home Services</span>
+          <h3 style="font-size:18px; margin-top:10px;">Nordic Plumbing &amp; Remodel</h3>
+          <p style="font-size:14.5px;">Service-area SEO pages built to rank across the Twin Cities metro, with financing details up front.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="food" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota coffee shop" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Café</span>
+          <h3 style="font-size:18px; margin-top:10px;">Birchwood Coffee Co.</h3>
+          <p style="font-size:14.5px;">Warm, photo-led homepage with location hours, wifi info, and a simple catering inquiry form.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="wellness" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota fitness studio" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Fitness</span>
+          <h3 style="font-size:18px; margin-top:10px;">Iron Range Fitness</h3>
+          <p style="font-size:14.5px;">Class-schedule integration and a free-trial signup flow built to fill morning classes.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+      <div class="listing-card card" data-category="professional" style="padding:0; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Website project for a Minnesota dental practice" style="height:200px; object-fit:cover; border-radius:0;">
+        <div style="padding:24px;">
+          <span class="tag">Medical &amp; Dental</span>
+          <h3 style="font-size:18px; margin-top:10px;">Northside Dental</h3>
+          <p style="font-size:14.5px;">New-patient-focused site with insurance info, online forms, and same-day appointment requests.</p>
+          <a href="contact.html" class="btn btn-ghost btn-sm">View Case Study</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-band">
+      <div class="blueprint"></div>
+      <div style="position:relative; z-index:2;">
+        <p class="eyebrow on-dark" style="justify-content:center;">Like what you see?</p>
+        <h2>Your business could be the next case study.</h2>
+        <p>Let's talk about what a site like this could do for your calendar.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/logo.png" alt="FD Webworks logo" style="height:34px;">
+          <span class="brand-name">FD Webworks</span>
+        </div>
+        <p>Build. Design. Grow. Websites for Minnesota's local businesses, built to bring in real customers.</p>
+        <div class="social-row">
+          <a href="#" aria-label="FD Webworks on Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="FD Webworks on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="FD Webworks on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v2a6 6 0 0 1 2-2z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="listings.html">Listings</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="services.html">Website Design</a>
+        <a href="services.html">SEO Foundations</a>
+        <a href="services.html">Ongoing Support</a>
+        <a href="services.html">Lead Capture</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+19522397775">(952) 239-7775</a>
+        <a href="mailto:faizaan1403dawood@gmail.com">faizaan1403dawood@gmail.com</a>
+        <a href="contact.html">Minneapolis, MN</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FD Webworks. All rights reserved.</span>
+      <span>Minnesota Web Agency — Build. Design. Grow.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .filter-btn.active{ background:var(--grad); color:#fff; border-color:transparent; }
+</style>
+
+<script src="script.js"></script>
+</body>
+</html>
