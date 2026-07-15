@@ -64,9 +64,12 @@ section{ position:relative; }
 .nav-main a.active{ color:var(--ink); }
 .nav-main a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--grad); border-radius:2px; }
 .header-actions{ display:flex; align-items:center; gap:14px; }
-.menu-toggle{ display:none; background:none; border:none; padding:6px; flex-direction:column; gap:5px; }
-.menu-toggle span{ width:24px; height:2px; background:var(--ink); border-radius:2px; }
-.mobile-nav{ display:none; position:fixed; inset:76px 0 0 0; z-index:99; background:var(--white); padding:28px 24px; overflow-y:auto; }
+.menu-toggle{ display:none; background:none; border:none; padding:10px; flex-direction:column; align-items:center; justify-content:center; gap:5px; width:44px; height:44px; flex:none; -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+.menu-toggle span{ width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .2s ease, opacity .2s ease; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+.mobile-nav{ display:none; position:fixed; inset:76px 0 0 0; z-index:99; background:var(--white); padding:28px 24px calc(28px + env(safe-area-inset-bottom)); overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
 .mobile-nav.open{ display:block; }
 .mobile-nav a{ display:block; padding:16px 0; font-size:19px; font-weight:600; border-bottom:1px solid var(--line); font-family:'Space Grotesk', sans-serif; }
 .mobile-nav .btn{ margin-top:24px; }
@@ -211,6 +214,7 @@ section{ position:relative; }
       <p class="lead">FD Webworks designs and builds fast, modern websites for local businesses across Minnesota — built to turn visitors into booked calls and paying customers.</p>
       <div class="hero-actions">
         <a href="#" class="btn btn-primary" data-goto="contact">Book a Free Consultation</a>
+        <a href="#" class="btn btn-ghost on-dark" data-goto="pricing">View Pricing</a>
       </div>
       <div class="hero-meta">
         <div><strong>1 wk</strong>Average build time</div>
@@ -351,6 +355,7 @@ section{ position:relative; }
         <p>Book a free 20-minute consultation — no pressure, just a plan for your new site.</p>
         <div class="hero-actions">
           <a href="#" class="btn btn-primary" data-goto="contact">Book a Free Consultation</a>
+          <a href="#" class="btn btn-ghost on-dark" data-goto="pricing">View Pricing</a>
         </div>
       </div>
     </div>
@@ -458,6 +463,7 @@ section{ position:relative; }
         <p>Free 20-minute consultation. No obligation, just a clear plan.</p>
         <div class="hero-actions">
           <a href="#" class="btn btn-primary" data-goto="contact">Book a Free Consultation</a>
+          <a href="#" class="btn btn-ghost on-dark" data-goto="pricing">View Pricing</a>
           <a href="#" class="btn btn-ghost on-dark" data-goto="services">See Our Services</a>
         </div>
       </div>
@@ -599,6 +605,7 @@ section{ position:relative; }
         <p>Book a free consultation — we'll tell you honestly what will move the needle for your business.</p>
         <div class="hero-actions">
           <a href="#" class="btn btn-primary" data-goto="contact">Book a Free Consultation</a>
+          <a href="#" class="btn btn-ghost on-dark" data-goto="pricing">View Pricing</a>
         </div>
       </div>
     </div>
@@ -740,6 +747,7 @@ section{ position:relative; }
         <p>Let's talk about what a site like this could do for your calendar.</p>
         <div class="hero-actions">
           <a href="#" class="btn btn-primary" data-goto="contact">Book a Free Consultation</a>
+          <a href="#" class="btn btn-ghost on-dark" data-goto="pricing">View Pricing</a>
         </div>
       </div>
     </div>
@@ -1021,11 +1029,45 @@ section{ position:relative; }
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.menu-toggle');
   var mobileNav = document.querySelector('.mobile-nav');
+  var lockedScrollY = 0;
+
+  function openMobileNav() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-lockedScrollY) + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    mobileNav.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMobileNav() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, lockedScrollY);
+    mobileNav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
   if (toggle && mobileNav) {
     toggle.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 920 && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      }
     });
   }
 
@@ -1036,8 +1078,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.nav-link[data-page]').forEach(function (l) {
       l.classList.toggle('active', l.getAttribute('data-page') === name && l.closest('nav, .mobile-nav'));
     });
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
+    if (mobileNav.classList.contains('open')) closeMobileNav();
     window.scrollTo(0, 0);
   }
 

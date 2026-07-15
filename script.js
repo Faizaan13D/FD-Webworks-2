@@ -1,20 +1,53 @@
 // FD Webworks — shared behaviors
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Mobile nav toggle
+  // Mobile nav toggle (touch-friendly, iOS scroll-lock safe)
   var toggle = document.querySelector('.menu-toggle');
   var mobileNav = document.querySelector('.mobile-nav');
+  var lockedScrollY = 0;
+
+  function openMobileNav() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-lockedScrollY) + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    mobileNav.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMobileNav() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, lockedScrollY);
+    mobileNav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
   if (toggle && mobileNav) {
     toggle.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
     });
     mobileNav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
+        closeMobileNav();
       });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 920 && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      }
     });
   }
 
